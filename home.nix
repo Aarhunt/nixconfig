@@ -15,10 +15,7 @@
     ];
 
     home = {
-        packages = with pkgs; [
-            # inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
-                neovim-remote
-        ];
+        packages = with pkgs; import ./homeModules/packages.nix {inherit pkgs;};
 
         sessionVariables = {
             EDITOR = "nvim";

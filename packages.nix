@@ -5,4 +5,5 @@ with pkgs; [
     btop
     libreoffice-qt
     unzip
+    bitwarden-desktop
 ]
