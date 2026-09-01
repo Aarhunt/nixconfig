@@ -1,0 +1,11 @@
+# Auto-generated from NetworkManager connection "tue-wpa2"
+# Changes to that connection overwrite this file when enabled by NM's [main].iwd-config-path value
+[IPv6]
+Enabled=true
+
+[Security]
+EAP-Method=PEAP
+EAP-Identity=username
+EAP-PEAP-Phase2-Method=MSCHAPV2
+EAP-PEAP-Phase2-Identity=username
+EAP-PEAP-Phase2-Password=password
