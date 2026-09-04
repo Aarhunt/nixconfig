@@ -14,11 +14,9 @@ let
   };
 
   prefs = {
-    # Check these out at about:config
     "extensions.autoDisableScopes" = 0;
     "extensions.pocket.enabled" = false;
     "signon.rememberSignons" = false;
-    # ...
   };
 
   extensions = [

@@ -15,6 +15,7 @@
             inputs.spicetify-nix.homeManagerModules.spicetify
             ./homeModules/spicetify.nix
             ./homeModules/niriconfig.nix
+            ./homeModules/direnv.nix
     ];
 
     home = {

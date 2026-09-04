@@ -76,7 +76,7 @@
 
 	environment.gnome.excludePackages = with pkgs; [
 		showtime
-			gcr-ssh-agent
+        gcr-ssh-agent
 	];
 
     environment.pathsToLink = [
@@ -88,12 +88,6 @@
 		defaultEditor = true;
 		viAlias = true;
 		vimAlias = true;
-		configure = {
-		customRC = ''
-			set number relativenumber
-			set tabstop=4 shiftwidth=4 expandtab smartindent
-			'';
-        };
 	};
 
 	programs.ssh.startAgent = true;
@@ -126,6 +120,6 @@
 # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
 	system.stateVersion = "26.05"; # Did you read the comment?
 
-		nix.settings.experimental-features = [ "nix-command" "flakes" ];
+    nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
 }
