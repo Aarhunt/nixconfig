@@ -152,11 +152,474 @@
 
     };
     home.file = {
-        ".config/noctalia/templates.toml".text = ''
+        ".config/noctalia/beeper.css".text = ''
+/* ==========================================================================
+   BEEPER — MATUGEN
+   ========================================================================== */
+
+:root {
+    /* ----------------------------------------------------------------------
+       Layout
+       ---------------------------------------------------------------------- */
+
+    --font-family: system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", "Helvetica Neue", sans-serif;
+
+    --header-height: 48px;
+    --filters-pane-width: 220px;
+    --min-sidebar-width: 280px;
+    --max-sidebar-width: 800px;
+    --threads-list-item-height: 54px;
+
+    --pinned-thread-base-size: 64px;
+    --pinned-thread-group-img-size:
+        calc(var(--pinned-thread-base-size) / 1.5);
+    --pinned-thread-height:
+        calc(var(--pinned-thread-base-size) +
+        (var(--pinned-thread-base-size) / 1.4));
+    --pinned-thread-width:
+        calc(var(--pinned-thread-base-size) +
+        (var(--pinned-thread-base-size) / 2.5));
+
+
+    /* ----------------------------------------------------------------------
+       Matugen palette
+       ---------------------------------------------------------------------- */
+
+    --surface:
+        {{colors.surface.default.hex}};
+
+    --surface-lowest:
+        {{colors.surface_container_lowest.default.hex}};
+
+    --surface-low:
+        {{colors.surface_container_low.default.hex}};
+
+    --surface-container:
+        {{colors.surface_container.default.hex}};
+
+    --surface-high:
+        {{colors.surface_container_high.default.hex}};
+
+    --surface-highest:
+        {{colors.surface_container_highest.default.hex}};
+
+    --text:
+        {{colors.on_surface.default.hex}};
+
+    --text-secondary:
+        {{colors.on_surface_variant.default.hex}};
+
+    --outline:
+        {{colors.outline.default.hex}};
+
+    --outline-variant:
+        {{colors.outline_variant.default.hex}};
+
+    --primary:
+        {{colors.primary.default.hex}};
+
+    --primary-container:
+        {{colors.primary_container.default.hex}};
+
+    --on-primary:
+        {{colors.on_primary.default.hex}};
+
+    --on-primary-container:
+        {{colors.on_primary_container.default.hex}};
+
+    --secondary:
+        {{colors.secondary.default.hex}};
+
+    --tertiary:
+        {{colors.tertiary.default.hex}};
+
+    --error:
+        {{colors.error.default.hex}};
+
+    --on-error:
+        {{colors.on_error.default.hex}};
+
+
+    /* ----------------------------------------------------------------------
+       Beeper core
+       ---------------------------------------------------------------------- */
+
+    --color-bg:
+        var(--surface);
+
+    --color-fg:
+        var(--text);
+
+    --color-primary:
+        var(--primary);
+
+
+    /* ----------------------------------------------------------------------
+       Beeper base palette
+       ---------------------------------------------------------------------- */
+
+    --color-base-black:
+        var(--text);
+
+    --color-base-white:
+        var(--surface);
+
+    --color-base-gray-20:
+        var(--surface-low);
+
+    --color-base-gray-30:
+        var(--surface-container);
+
+    --color-base-gray-40:
+        var(--surface-high);
+
+    --color-base-gray-50:
+        var(--surface-highest);
+
+    --color-base-gray-60:
+        var(--primary-container);
+
+    --color-base-gray-70:
+        var(--secondary);
+
+    --color-base-gray-80:
+        var(--outline-variant);
+
+    --color-base-gray-100:
+        var(--outline);
+
+    --color-base-gray-110:
+        var(--text-secondary);
+
+    --color-base-gray-120:
+        var(--text);
+
+
+    /* ----------------------------------------------------------------------
+       Application
+       ---------------------------------------------------------------------- */
+
+    --color-background-app:
+        var(--surface);
+
+    --color-background-app-weak:
+        var(--surface-low);
+
+    --color-background-elevated:
+        var(--surface-container);
+
+    --color-background-elevated-hover:
+        var(--surface-high);
+
+    --color-background-grouped:
+        var(--surface-low);
+
+    --color-background-grouped-weak:
+        var(--surface-lowest);
+
+    --color-background-object:
+        var(--surface-container);
+
+
+    /* ----------------------------------------------------------------------
+       Sidebar
+       ---------------------------------------------------------------------- */
+
+    --color-background-sidebar:
+        var(--surface-low);
+
+    --color-background-sidebar-opaque:
+        var(--surface-container);
+
+    --color-background-sidebar-thread-focus:
+        var(--surface-container);
+
+    --color-background-sidebar-thread-selected:
+        var(--primary-container);
+
+    --color-background-sidebar-thread-selected-unfocused:
+        var(--surface-high);
+
+
+    /* ----------------------------------------------------------------------
+       Messages
+       ---------------------------------------------------------------------- */
+
+    --color-background-message-active:
+        var(--surface-low);
+
+    --color-background-message-bubble-received:
+        var(--surface-high);
+
+    --color-background-message-bubble-sent:
+        var(--primary-container);
+
+    --color-background-message-bubble-linked:
+        var(--surface-container);
+
+
+    /* ----------------------------------------------------------------------
+       Selection
+       ---------------------------------------------------------------------- */
+
+    --color-background-selected-primary:
+        var(--primary-container);
+
+    --color-background-selected-secondary:
+        var(--surface-high);
+
+
+    /* ----------------------------------------------------------------------
+       Inputs
+       ---------------------------------------------------------------------- */
+
+    --color-background-input:
+        var(--surface-high);
+
+    --color-background-kbd:
+        var(--surface-highest);
+
+
+    /* ----------------------------------------------------------------------
+       Text
+       ---------------------------------------------------------------------- */
+
+    --color-text-neutrals:
+        var(--text);
+
+    --color-text-neutrals-subtle:
+        var(--text-secondary);
+
+    --color-text-neutrals-weak:
+        var(--text-secondary);
+
+    --color-text-on-accent:
+        var(--on-primary-container);
+
+    --color-text-on-accent-weak:
+        var(--on-primary-container);
+
+    --color-text-translucent:
+        var(--text);
+
+    --color-text-translucent-subtle:
+        var(--text-secondary);
+
+    --color-text-translucent-weak:
+        var(--text-secondary);
+
+
+    /* ----------------------------------------------------------------------
+       Icons
+       ---------------------------------------------------------------------- */
+
+    --color-icon-neutrals:
+        var(--text-secondary);
+
+    --color-icon-neutrals-strong:
+        var(--text);
+
+    --color-icon-neutrals-subtle:
+        var(--outline);
+
+    --color-icon-neutrals-weak:
+        var(--outline-variant);
+
+    --color-icon-on-accent:
+        var(--on-primary-container);
+
+    --color-icon-on-accent-strong:
+        var(--on-primary-container);
+
+    --color-icon-on-accent-weak:
+        var(--on-primary-container);
+
+
+    /* ----------------------------------------------------------------------
+       Menus / headers
+       ---------------------------------------------------------------------- */
+
+    --color-background-menu:
+        var(--surface-high);
+
+    --color-background-menu-opaque:
+        var(--surface-high);
+
+    --color-background-menu-option-hover:
+        var(--primary-container);
+
+    --color-background-header-right:
+        var(--surface-container);
+
+    --color-background-header-right-opaque:
+        var(--surface-container);
+
+
+    /* ----------------------------------------------------------------------
+       Borders
+       ---------------------------------------------------------------------- */
+
+    --color-border-neutrals:
+        var(--outline-variant);
+
+    --color-border-neutrals-strong:
+        var(--outline);
+
+    --color-border-neutrals-weak:
+        var(--surface-low);
+
+    --color-border-input:
+        var(--outline-variant);
+
+    --color-border-input-active:
+        var(--outline);
+
+
+    /* ----------------------------------------------------------------------
+       Functional
+       ---------------------------------------------------------------------- */
+
+    --functional-red:
+        var(--error);
+
+    --functional-orange:
+        var(--secondary);
+
+    --functional-green:
+        var(--tertiary);
+
+    --functional-cyan:
+        var(--primary);
+
+    --functional-purple:
+        var(--primary);
+
+    --focus-ring:
+        var(--primary);
+
+    --link-color:
+        var(--primary);
+
+    --danger-bg:
+        var(--error);
+
+    --success-bg:
+        var(--tertiary);
+
+    --warning-bg:
+        var(--secondary);
+
+
+    /* ----------------------------------------------------------------------
+       Misc
+       ---------------------------------------------------------------------- */
+
+    --color-background-tag:
+        var(--surface-high);
+
+    --color-overlay-modal:
+        rgba(0, 0, 0, 0.35);
+
+    --color-transparent:
+        transparent;
+
+    --left-pane-bg:
+        transparent;
+
+    --right-pane-bg:
+        var(--surface);
+
+    --error-color:
+        var(--error);
+
+    --warning-color:
+        var(--secondary);
+
+    --snoozed-indicator-bg:
+        var(--secondary);
+
+    --error-indicator-bg:
+        var(--error);
+
+    --message-snoozed-border:
+        var(--secondary);
+
+    --message-errored-beacon:
+        var(--error);
+
+    --sms-sent-bg:
+        var(--tertiary);
+
+    --compose-message-accent:
+        var(--primary);
+
+    --audio-bar-button:
+        var(--primary);
+
+    --audio-bar-preview-progress:
+        var(--text);
+
+    --audio-bar-bg:
+        var(--surface-container);
+
+    --audio-bar-border:
+        var(--outline-variant);
+
+    --prefs-well:
+        var(--surface-low);
+
+    --mark-bg:
+        var(--primary-container);
+
+    --skeleton-bg:
+        url("../../../public/img/skeleton.svg");
+}
+
+
+/* ==========================================================================
+   DARK MODE
+   ========================================================================== */
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        /*
+         * Matugen supplies the palette.
+         * No duplicate Beeper mappings are needed here because the
+         * Matugen-generated values are already theme-dependent.
+         */
+        --color-surface:
+            {{colors.surface.default.hex}};
+    }
+}
+
+
+/* ==========================================================================
+   TRANSPARENCY
+   ========================================================================== */
+
+.no-transparency,
+.reduce-transparency {
+    --left-pane-bg:
+        var(--color-background-sidebar-opaque);
+
+    --color-background-header-right:
+        var(--color-background-header-right-opaque);
+
+    --color-background-menu:
+        var(--color-background-menu-opaque);
+}
+        '';
+            ".config/noctalia/templates.toml".text = ''
             [theme.templates.user.neovim-nvchad]
             input_path = '~/.config/noctalia/neovim-nvchad.lua'
                 output_path = '~/.local/share/nvim/lazy/base46/lua/base46/themes/matugen.lua'
                 post_hook = 'nvr --remote-send "<Cmd>lua require(\"base46\").load_all_highlights()<CR>"'
+
+
+            [theme.templates.user.beeper]
+            input_path = "~/.config/noctalia/beeper.css"
+            output_path = "~/.config/BeeperTexts/custom.css"
 
                 '';
 

@@ -12,6 +12,9 @@
             ./homeModules/noctalia.nix
             ./homeModules/obsidian.nix
             ./homeModules/alacritty.nix
+            inputs.spicetify-nix.homeManagerModules.spicetify
+            ./homeModules/spicetify.nix
+            ./homeModules/niriconfig.nix
     ];
 
     home = {

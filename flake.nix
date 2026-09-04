@@ -27,6 +27,10 @@
             url = "github:noctalia-dev/noctalia-greeter";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+        spicetify-nix = {
+            url = "github:Gerg-L/spicetify-nix";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
     };
 
     outputs = { nixpkgs, home-manager, zen-browser, ... } @ inputs:

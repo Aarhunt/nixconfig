@@ -4,9 +4,15 @@
         enable = true;
 
         shellAliases = {
-            ll = "ls -l";
-            edit = "sudo -e";
+            alias ll="ls -AghF";
+            alias la="ls -aA";
+            alias lsls="ls -Qm";
+
+            alias nivm="nvim";
+            alias opengit="git remote -v | head -n 1 | awk -F ':' '{print \$2}' | awk -F '.' '{print \"https://github.com/\"\$1}' | xargs xdg-open";
+
             update = "sudo nixos-rebuild switch";
+            clean = "nix-collect-garbage -d";
         };
 
         loginShellInit = "starship init fish | source";
