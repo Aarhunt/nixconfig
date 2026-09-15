@@ -17,8 +17,14 @@
 
         loginShellInit = "starship init fish | source";
         interactiveShellInit = ''
-        set fish_greeting
-        '';
+            if status is-interactive
+            and not set -q TMUX
+                exec tmux new-session 
+            end
+
+            set fish_greeting
+            ${pkgs.nix-your-shell}/bin/nix-your-shell fish | source
+            '';
     };
 
     programs.zoxide = {
@@ -43,6 +49,8 @@
         shell = "${pkgs.fish}/bin/fish";
         terminal = "tmux-256color";
         mouse = true;
+        shortcut = "space";
+        disableConfirmationPrompt = true; 
     };
 
 }

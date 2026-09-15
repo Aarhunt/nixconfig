@@ -22,6 +22,8 @@
 	networking.wireless.enable = false;
     services.upower.enable = true;
 
+    virtualisation.docker.enable = true;
+
 	networking.networkmanager = {
 		enable = true;
 		wifi.backend = "iwd";
@@ -62,7 +64,7 @@
 	users.users."arend" = {
 		isNormalUser = true;
 		description = "arend";
-		extraGroups = [ "networkmanager" "wheel" ];
+		extraGroups = [ "networkmanager" "wheel" "docker" ];
 		packages = with pkgs; [];
 	};
 

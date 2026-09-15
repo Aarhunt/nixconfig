@@ -16,6 +16,7 @@
             ./homeModules/spicetify.nix
             ./homeModules/niriconfig.nix
             ./homeModules/direnv.nix
+            ./homeModules/nix-your-shell.nix
     ];
 
     home = {

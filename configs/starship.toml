@@ -3,6 +3,7 @@ $os\
 $directory\
 $git_branch\
 $git_status\
+$nix_shell\
 $fill\
 $python\
 $lua\
@@ -102,3 +103,9 @@ format = '[$symbol]($style)'
 min_time = 500
 style = 'fg:gray'
 format = '[$duration]($style)'
+
+[nix_shell]
+symbol = "nix-shell "
+style = "bold red"
+format = "via [$symbol]($style) "
+disabled = false

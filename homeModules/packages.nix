@@ -2,4 +2,5 @@
 with pkgs; [
     neovim-remote
     beeper
+    zathura
 ]
