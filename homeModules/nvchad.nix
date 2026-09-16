@@ -1,3 +1,4 @@
+{pkgs, ...}:
 {
     programs.nvchad = {
         enable = true;
@@ -7,6 +8,8 @@
             vim.opt.expandtab  = true
             vim.opt.smartindent = true
             vim.opt.relativenumber = true
+
+            vim.lsp.enable('pyright')
             '';
         extraPackages = with pkgs; [
                 lua-language-server
