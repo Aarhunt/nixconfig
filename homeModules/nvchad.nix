@@ -8,7 +8,10 @@
             vim.opt.smartindent = true
             vim.opt.relativenumber = true
             '';
-
+        extraPackages = with pkgs; [
+                lua-language-server
+            pyright
+        ];
         chadrcConfig = ''
             local M = {}
         M.base46 = {

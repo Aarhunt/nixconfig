@@ -96,6 +96,21 @@
                 };
             };
 
+            plugins = {
+                enabled = [
+                    "noctalia/bitwarden"
+                ];
+            };
+
+            plugin_settings = {
+                "noctalia/bitwarden" = {
+                    gen_passphrase_capitalize = true;
+                    gen_passphrase_include_number = true;
+                    gen_passphrase_words = 3;
+                    server_url = "https://vault.aroijakkers.nl";
+                };
+            };
+
             shell = {
                 font_family = "DejaVu Sans";
                 niri_overview_type_to_launch_enabled = true;
