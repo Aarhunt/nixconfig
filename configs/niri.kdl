@@ -244,6 +244,7 @@ binds {
 
     Mod+Period  { consume-window-into-column; }
     Mod+Slash { expel-window-from-column; }
+    Mod+Shift+Period { spawn-sh "noctalia msg panel-toggle noctalia/notes:panel"; }
 
     Mod+R { switch-preset-column-width; }
     Mod+Shift+R { switch-preset-window-height; }
@@ -288,6 +289,6 @@ binds {
     Mod+Shift+P { power-off-monitors; }
 }
 
-spawn-at-startup "autostart-noctalia"
+spawn-at-startup "noctalia"
 
 include "noctalia.kdl"

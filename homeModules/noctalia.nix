@@ -1,3 +1,29 @@
+{ pkgs, lib, inputs, ... }:
+
+let
+  pythonEnv = pkgs.python3.withPackages (ps: with ps; [ pip ]);
+
+  runtimeDeps = [ pythonEnv ] ++ (with pkgs; [ qrencode mpvpaper mpv socat ]);
+
+  runtimeLibs = with pkgs; [ zlib stdenv.cc.cc.lib ];
+
+  # the unwrapped package — from the flake input
+  noctaliaUnwrapped =
+    inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default;
+
+  noctaliaWrapped = pkgs.symlinkJoin {
+    name = "noctalia-wrapped";
+    paths = [ noctaliaUnwrapped ];
+    nativeBuildInputs = [ pkgs.makeWrapper ];
+    postBuild = ''
+      for f in $out/bin/*; do
+        wrapProgram "$f" \
+          --prefix PATH : ${lib.makeBinPath runtimeDeps} \
+          --prefix LD_LIBRARY_PATH : ${lib.makeLibraryPath runtimeLibs}
+      done
+    '';
+  };
+in
 { 
     programs.noctalia = {
         enable = true;
