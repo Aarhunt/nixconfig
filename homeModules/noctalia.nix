@@ -1,9 +1,27 @@
 { pkgs, lib, inputs, ... }:
 
 let
-  pythonEnv = pkgs.python3.withPackages (ps: with ps; [ pip ]);
+  pythonEnv = pkgs.python314.withPackages (ps: with ps; [ pip ]);
 
-  runtimeDeps = [ pythonEnv ] ++ (with pkgs; [ qrencode mpvpaper mpv socat ]);
+  runtimeDeps = [ pythonEnv ] ++ (with pkgs; [ 
+      qrencode 
+      mpvpaper 
+      mpv 
+      socat
+      slurp
+      grim
+      hyprpicker
+      tesseract
+      imagemagick
+      zbar
+      jq
+      bc
+      mpv
+      swappy
+      translate-shell
+      spotify-player
+      gtk3
+  ]);
 
   runtimeLibs = with pkgs; [ zlib stdenv.cc.cc.lib ];
 
@@ -22,11 +40,13 @@ let
           --prefix LD_LIBRARY_PATH : ${lib.makeLibraryPath runtimeLibs}
       done
     '';
+      meta.mainProgram = noctaliaUnwrapped.meta.mainProgram or "noctalia-shell";
   };
 in
 { 
     programs.noctalia = {
         enable = true;
+        package = noctaliaWrapped;
 
         settings = {
             bar.default = {

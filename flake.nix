@@ -31,6 +31,11 @@
             url = "github:Gerg-L/spicetify-nix";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+
+        sops-nix = {
+            url = "github:Mic92/sops-nix";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
     };
 
     outputs = { nixpkgs, home-manager, zen-browser, ... } @ inputs:
@@ -45,14 +50,15 @@
                 modules = [
                     ./configuration.nix
                         inputs.noctalia-greeter.nixosModules.default
+                        inputs.sops-nix.nixosModules.sops
                         ./homeModules/greeter.nix
                         ./homeModules/zen.nix
                         home-manager.nixosModules.home-manager {
-                            home-manager.useGlobalPkgs = true;
-                            home-manager.useUserPackages = true;
-                            home-manager.users.arend = import ./home.nix;
-                            home-manager.extraSpecialArgs = { inherit inputs system;};
-                            home-manager.backupFileExtension = "bak";
+                        home-manager.useGlobalPkgs = true;
+                        home-manager.useUserPackages = true;
+                        home-manager.users.arend = import ./home.nix;
+                        home-manager.extraSpecialArgs = { inherit inputs system;};
+                        home-manager.backupFileExtension = "bak";
                         }
                 ];
             };

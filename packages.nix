@@ -6,4 +6,5 @@ with pkgs; [
     libreoffice-qt
     unzip
     bitwarden-desktop
+    musescore
 ]

@@ -17,6 +17,7 @@
             ./homeModules/niriconfig.nix
             ./homeModules/direnv.nix
             ./homeModules/nix-your-shell.nix
+            ./homeModules/thunderbird.nix
     ];
 
     home = {

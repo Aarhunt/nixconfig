@@ -33,11 +33,15 @@
 
             vim.lsp.enable('pyright')
             vim.lsp.enable('nil_ls')
+            vim.lsp.enable('gopls')
+            vim.lsp.enable('vtsls')
             '';
         extraPackages = with pkgs; [
             lua-language-server
             pyright
             nil
+            gopls
+            vtsls
         ];
         chadrcConfig = ''
             local M = {}

@@ -11,6 +11,7 @@ input {
         tap
         natural-scroll
     }
+    workspace-auto-back-and-forth
 }
 
 /-output "eDP-1" {
@@ -290,5 +291,6 @@ binds {
 }
 
 spawn-at-startup "noctalia"
+spawn-at-startup "xwayland-sattelite"
 
 include "noctalia.kdl"

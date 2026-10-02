@@ -72,32 +72,52 @@
 		nerd-fonts.jetbrains-mono
 	];
 
+
+    services.avahi = {
+        enable = true;
+        nssmdns4 = true;
+        openFirewall = true;
+    };
+
+    services.printing = {
+        enable = true;
+        drivers = with pkgs; [
+            cups-filters
+                cups-browsed
+        ];
+    };
+
+    hardware.bluetooth = {
+      enable = true;
+      powerOnBoot = false;
+    };
+
 # List packages installed in system profile. To search, run:
 # $ nix search wget
-	environment.systemPackages = with pkgs; import ./packages.nix {inherit pkgs inputs;};
+    environment.systemPackages = with pkgs; import ./packages.nix {inherit pkgs inputs;};
 
-	environment.gnome.excludePackages = with pkgs; [
-		showtime
-        gcr-ssh-agent
-	];
+    environment.gnome.excludePackages = with pkgs; [
+        showtime
+            gcr-ssh-agent
+    ];
 
     environment.pathsToLink = [
         "/share/applications"
             "/share/xdg-desktop-portal"
     ];
 
-	programs.neovim = {
-		defaultEditor = true;
-		viAlias = true;
-		vimAlias = true;
-	};
+    programs.neovim = {
+        defaultEditor = true;
+        viAlias = true;
+        vimAlias = true;
+    };
 
     programs.ssh.startAgent = true;
     programs.niri.enable = true;
     programs.nix-ld.enable = true;
     programs.nix-ld.libraries = with pkgs; [
         stdenv.cc.cc.lib   
-        zlib          
+            zlib          
     ];
 # Some programs need SUID wrappers, can be configured further or are
 # started in user sessions.
