@@ -5,4 +5,5 @@ with pkgs; [
     zathura
     bitwarden-cli
     xwayland-satellite
+    mattermost-desktop
 ]

@@ -51,6 +51,7 @@
         mouse = true;
         shortcut = "space";
         disableConfirmationPrompt = true; 
+        baseIndex = 1;
     };
 
 }

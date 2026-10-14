@@ -33,4 +33,24 @@
 
         stateVersion = "26.05";
     };
+
+    xdg = {
+        mimeApps = {
+            enable = true;
+            defaultApplications = {
+                "inode/directory" = "yazi-open.desktop";
+                "application/zip" = "yazi-open.desktop";
+            };
+        };
+
+        desktopEntries.yazi-open = {
+          name = "Yazi File Manager";
+          genericName = "File Manager";
+          # Replace 'kitty' with 'foot' or 'alacritty' depending on what you use in Niri
+          exec = "alacritty -e yazi %u"; 
+          mimeType = [ "inode/directory" "application/zip"];
+          terminal = false;
+          categories = [ "System" "FileTransfer" ];
+        };
+    };
 }

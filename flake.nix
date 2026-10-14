@@ -36,6 +36,11 @@
             url = "github:Mic92/sops-nix";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+
+        obsidian-extensions = {
+            url = "github:karaolidis/nix-obsidian-extensions";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
     };
 
     outputs = { nixpkgs, home-manager, zen-browser, ... } @ inputs:
@@ -53,6 +58,7 @@
                         inputs.sops-nix.nixosModules.sops
                         ./homeModules/greeter.nix
                         ./homeModules/zen.nix
+                        { nixpkgs.overlays = [ inputs.obsidian-extensions.overlays.default ]; }
                         home-manager.nixosModules.home-manager {
                         home-manager.useGlobalPkgs = true;
                         home-manager.useUserPackages = true;
