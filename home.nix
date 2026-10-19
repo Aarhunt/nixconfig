@@ -13,7 +13,6 @@
             ./homeModules/obsidian.nix
             ./homeModules/alacritty.nix
             inputs.spicetify-nix.homeManagerModules.spicetify
-            ./homeModules/spicetify.nix
             ./homeModules/niriconfig.nix
             ./homeModules/direnv.nix
             ./homeModules/nix-your-shell.nix

@@ -41,6 +41,10 @@
             url = "github:karaolidis/nix-obsidian-extensions";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+        spotifast = {
+            url = "github:crmne/spotifast";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
     };
 
     outputs = { nixpkgs, home-manager, zen-browser, ... } @ inputs:

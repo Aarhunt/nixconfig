@@ -7,4 +7,5 @@ with pkgs; [
     unzip
     bitwarden-desktop
     musescore
+    inputs.spotifast.packages."${pkgs.stdenv.hostPlatform.system}".default
 ]
