@@ -3,20 +3,21 @@
 {
     imports = [
         inputs.nix4nvchad.homeManagerModules.default
-            inputs.noctalia.homeModules.default
-            ./homeModules/shell.nix
-            ./homeModules/ssh.nix
-            ./homeModules/git.nix
-            ./homeModules/nvchad.nix
-            ./homeModules/starship.nix
-            ./homeModules/noctalia.nix
-            ./homeModules/obsidian.nix
-            ./homeModules/alacritty.nix
-            inputs.spicetify-nix.homeManagerModules.spicetify
-            ./homeModules/niriconfig.nix
-            ./homeModules/direnv.nix
-            ./homeModules/nix-your-shell.nix
-            ./homeModules/thunderbird.nix
+        inputs.noctalia.homeModules.default
+        ./homeModules/shell.nix
+        ./homeModules/ssh.nix
+        ./homeModules/git.nix
+        ./homeModules/nvchad.nix
+        ./homeModules/starship.nix
+        ./homeModules/noctalia.nix
+        ./homeModules/obsidian.nix
+        ./homeModules/alacritty.nix
+        ./homeModules/niriconfig.nix
+        ./homeModules/direnv.nix
+        ./homeModules/nix-your-shell.nix
+        ./homeModules/thunderbird.nix
+         inputs.nix-craftapps.homeManagerModules.default 
+        ./homeModules/craftapps.nix
     ];
 
     home = {

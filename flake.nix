@@ -45,6 +45,10 @@
             url = "github:crmne/spotifast";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+        nix-craftapps = {
+          url = "github:olafkfreund/nix-craftapps";
+          inputs.nixpkgs.follows = "nixpkgs";
+        };
     };
 
     outputs = { nixpkgs, home-manager, zen-browser, ... } @ inputs:

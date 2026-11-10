@@ -6,4 +6,4 @@ noctalia settings update
 server omzetten
 pc naar nix
 nix automatic wipe bullshit? geen idee
-
+nix comma

@@ -74,7 +74,7 @@
 
     sops = {
         defaultSopsFile = ./configs/secrets/example.yaml;
-        age.sshKeyPaths = [ "/home/arend/.ssh/id_ed25519.sops" ];
+        # age.sshKeyPaths = [ "/home/arend/.ssh/id_ed25519.sops" ];
         age.keyFile = "/var/lib/sops-nix/key.txt";
         age.generateKey = true;
     };
@@ -120,7 +120,7 @@
 
     programs.thunar = {
         enable = true;
-        plugins = with pkgs.xfce; [
+        plugins = with pkgs; [
             thunar-archive-plugin
             thunar-volman
         ];
