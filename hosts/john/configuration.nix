@@ -4,6 +4,7 @@
 	imports =
 		[ 
 		./hardware-configuration.nix
+        ./wifi.nix
 		];
 
 # Bootloader.
@@ -73,7 +74,7 @@
 	];
 
     sops = {
-        defaultSopsFile = ./configs/secrets/example.yaml;
+        defaultSopsFile = ../../configs/secrets/example.yaml;
         # age.sshKeyPaths = [ "/home/arend/.ssh/id_ed25519.sops" ];
         age.keyFile = "/var/lib/sops-nix/key.txt";
         age.generateKey = true;

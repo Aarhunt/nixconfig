@@ -49,82 +49,79 @@ in
         package = noctaliaWrapped;
 
         settings = {
-            bar.default = {
-                background_opacity = 0.32999999262392521;
-                end = [
-                    "media"
-                        "control-center"
-                        "tray"
-                        "notifications"
-                        "clipboard"
-                        "network"
-                        "bluetooth"
-                        "volume"
-                        "brightness"
-                        "battery"
-                        "session"
-                ];
+        accessibility = {
+            ui_scale = 0.9000000059604645;
+        };
+        audio = {
+            enable_overdrive = true;
+            enable_sounds = false;
+        };
+        bar = {
+            default = {
+                background_opacity = 0.3299999926239252;
+                end = [ "media" "control-center" "tray" "notifications" "clipboard" "network" "bluetooth" "volume" "brightness" "battery" "keyboard_layout" "session" ];
                 reserve_space = false;
                 smart_auto_hide = true;
+                start = [ "launcher" "wallpaper" "mpvpaper" "bar" "nix-monitor" "widget" "widget_2" "workspaces" "mail" "lid-guard" "file-search" ];
             };
-
-            desktop_widgets = {
-                schema_version = 2;
-                widget_order = [ "desktop-widget-0000000000000001" ];
-
-                grid = {
-                    cell_size = 16;
-                    major_interval = 4;
-                    visible = true;
-                };
-
-                widget."desktop-widget-0000000000000001" = {
+        };
+        desktop_widgets = {
+            schema_version = 2;
+            widget_order = [ "desktop-widget-0000000000000001" ];
+            grid = {
+                cell_size = 16;
+                major_interval = 4;
+                visible = true;
+            };
+            widget = {
+                desktop-widget-0000000000000001 = {
                     box_height = 288.0;
                     box_width = 320.0;
                     cx = 768.0;
-                    cy = 432.0;
+                    cy = 608.0;
                     output = "eDP-1";
                     placement_height = 864.0;
                     placement_width = 1536.0;
                     rotation = 0.0;
                     type = "clock";
-
                     settings = {
                         background = false;
-                        clock_style = "analog";
+                        clock_style = "digital";
                         color = "primary";
                     };
                 };
             };
-
-            location.address = "Eindhoven";
-
-            lockscreen.enabled = true;
-
-            lockscreen_widgets = {
-                enabled = true;
-                schema_version = 2;
-                widget_order = [ "lockscreen-login-box@eDP-1" ];
-
-                grid = {
-                    cell_size = 16;
-                    major_interval = 4;
-                    visible = true;
-                };
-
-                widget."lockscreen-login-box@eDP-1" = {
+        };
+        location = {
+            address = "Eindhoven";
+        };
+        lockscreen = {
+            blurred_desktop = true;
+            enabled = true;
+            grace_period_seconds = 5;
+        };
+        lockscreen_widgets = {
+            enabled = true;
+            schema_version = 2;
+            widget_order = [ "lockscreen-login-box@HDMI-A-1" "lockscreen-login-box@eDP-1" "lockscreen-login-box@winit" ];
+            grid = {
+                cell_size = 16;
+                major_interval = 4;
+                visible = true;
+            };
+            widget = {
+                "lockscreen-login-box@HDMI-A-1" = {
                     box_height = 196.0;
                     box_width = 810.0;
-                    cx = 768.0;
-                    cy = 682.0;
-                    output = "eDP-1";
-                    placement_height = 864.0;
-                    placement_width = 1536.0;
+                    cx = 960.0;
+                    cy = 898.0;
+                    output = "HDMI-A-1";
+                    placement_height = 1080.0;
+                    placement_width = 1920.0;
                     rotation = 0.0;
                     type = "login_box";
-
                     settings = {
-                        background_color = "surface_variant";
+                        background_color = "surface_container";
                         background_opacity = 0.88;
                         background_radius = 12.0;
                         center_password_text = false;
@@ -135,81 +132,190 @@ in
                         show_keyboard_layout = true;
                         show_login_button = true;
                         show_media = true;
+                        show_media_controls = true;
+                        show_password_reveal = true;
+                        show_session_buttons = true;
+                        show_unlock_hint = true;
+                        show_weather = true;
+                    };
+                };
+                "lockscreen-login-box@eDP-1" = {
+                    box_height = 196.0;
+                    box_width = 810.0;
+                    cx = 768.0;
+                    cy = 682.0;
+                    output = "eDP-1";
+                    placement_height = 864.0;
+                    placement_width = 1536.0;
+                    rotation = 0.0;
+                    type = "login_box";
+                    settings = {
+                        background_color = "surface_container";
+                        background_opacity = 0.88;
+                        background_radius = 12.0;
+                        center_password_text = false;
+                        input_opacity = 1.0;
+                        input_radius = 6.0;
+                        layout = "regular";
+                        show_caps_lock = true;
+                        show_keyboard_layout = true;
+                        show_login_button = true;
+                        show_media = true;
+                        show_media_controls = true;
+                        show_password_reveal = true;
+                        show_session_buttons = true;
+                        show_unlock_hint = true;
+                        show_weather = true;
+                    };
+                };
+                "lockscreen-login-box@winit" = {
+                    box_height = 196.0;
+                    box_width = 720.0;
+                    cx = 917.9996337890625;
+                    cy = 824.9885864257812;
+                    output = "winit";
+                    placement_height = 996.0;
+                    placement_width = 1836.0;
+                    rotation = 0.0;
+                    type = "login_box";
+                    settings = {
+                        background_color = "surface_container";
+                        background_opacity = 0.88;
+                        background_radius = 12.0;
+                        center_password_text = false;
+                        input_opacity = 1.0;
+                        input_radius = 6.0;
+                        layout = "regular";
+                        show_caps_lock = true;
+                        show_keyboard_layout = true;
+                        show_login_button = true;
+                        show_media = true;
+                        show_media_controls = true;
+                        show_password_reveal = true;
                         show_session_buttons = true;
                         show_unlock_hint = true;
                         show_weather = true;
                     };
                 };
             };
-
-            plugins = {
-                enabled = [
-                    "noctalia/bitwarden"
-                ];
+        };
+        plugin_settings = {
+            "ashur-d/nvim-projects" = {
+                projects_dir = "/home/arend/Development/";
             };
-
-            plugin_settings = {
-                "noctalia/bitwarden" = {
-                    gen_passphrase_capitalize = true;
-                    gen_passphrase_include_number = true;
-                    gen_passphrase_words = 3;
-                    server_url = "https://vault.aroijakkers.nl";
-                };
+            "avivbintangaringga/nix-monitor" = {
+                update_command = "sudo nixos-rebuild switch";
             };
-
-            shell = {
-                font_family = "DejaVu Sans";
-                niri_overview_type_to_launch_enabled = true;
-                password_style = "random";
-            };
-
-            theme = {
-                builtin = "Gruvbox";
-                community_palette = "Oxocarbon";
-                mode = "dark";
-                source = "wallpaper";
-                wallpaper_scheme = "m3-tonal-spot";
-
-                templates = {
-                    builtin_ids = [
-                        "alacritty"
-                            "btop"
-                            "cava"
-                            "niri"
-                            "starship"
-                    ];
-                    community_ids = [
-                        "zen-browser"
-                            "neovim"
-                            "obsidian"
-                            "yazi"
-                    ];
-                };
-            };
-
-            wallpaper = {
-                directory = "/home/arend/Pictures/wallpapers";
-                enabled = true;
-
-                default.path = "/home/arend/Pictures/wallpapers/wallpaper-2.jpg";
-                last.path = "/home/arend/Pictures/wallpapers/wallpaper-2.jpg";
-
-                monitors.eDP-1.path =
-                    "/home/arend/Pictures/wallpapers/wallpaper-2.jpg";
-            };
-
-            widget = {
-                bluetooth.enabled = false;
-                clipboard.enabled = false;
-
-                clock.actions.left = "panel-toggle control-center home";
-
-                control-center.enabled = false;
-                network.enabled = false;
-                notifications.enabled = false;
-                tray.enabled = false;
+            "noctalia/bitwarden" = {
+                gen_passphrase_capitalize = true;
+                gen_passphrase_include_number = true;
+                gen_passphrase_words = 3;
+                server_url = "https://vault.aroijakkers.nl";
             };
         };
+        plugins = {
+            enabled = [ "noctalia/bitwarden" "noctalia/notes" "noctalia/translator" "noctalia/wallpaper_depth" "nightwatch75/file-search" "raycursive/niri-displays" "yocraft/qrcode" "alexander/screen-toolkit" "8bury/lid-guard" ];
+        };
+        shell = {
+            font_family = "DejaVu Sans";
+            niri_overview_type_to_launch_enabled = true;
+            password_style = "random";
+            greeter_sync = {
+                auto_sync = true;
+                privilege_command = "alacritty -e sudo pkexec";
+            };
+            screenshot = {
+                annotate = true;
+            };
+        };
+        theme = {
+            builtin = "Gruvbox";
+            community_palette = "Oxocarbon";
+            mode = "dark";
+            source = "wallpaper";
+            wallpaper_scheme = "m3-tonal-spot";
+            templates = {
+                builtin_ids = [ "alacritty" "btop" "cava" "niri" "starship" ];
+                community_ids = [ "spotifast" "zen-browser" "musescore" "neovim" "obsidian" "mailspring" "thunderbird" "zathura" "thunar" "fzf" "lazygit" "starship" "tmux" "yazi" ];
+                user = {
+                    beeper = {
+                        input_path = "~/.config/noctalia/beeper.css";
+                        output_path = "~/.config/BeeperTexts/custom.css";
+                    };
+                    neovim-nvchad = {
+                        input_path = "~/.config/noctalia/neovim-nvchad.lua";
+                        output_path = "~/.local/share/nvim/lazy/base46/lua/base46/themes/matugen.lua";
+                        post_hook = "nvr --remote-send \"<Cmd>lua require(\"base46\").load_all_highlights()<CR>\"";
+                    };
+                };
+            };
+        };
+        wallpaper = {
+            directory = "/home/arend/Pictures/wallpapers";
+            enabled = true;
+            default = {
+                path = "/home/arend/Pictures/wallpapers/wallpaper-3.jpg";
+            };
+            last = {
+                path = "/home/arend/Pictures/wallpapers/wallpaper-3.jpg";
+            };
+            monitors = {
+                eDP-1 = {
+                    path = "/home/arend/Pictures/wallpapers/wallpaper-3.jpg";
+                };
+            };
+        };
+        widget = {
+            bar = {
+                type = "noctalia/wallpaper_depth:bar";
+            };
+            bluetooth = {
+                enabled = false;
+            };
+            clipboard = {
+                enabled = false;
+            };
+            clock = {
+                format = "{: %d/%m %H:%M}";
+                actions = {
+                    left = "panel-toggle control-center home";
+                };
+            };
+            control-center = {
+                enabled = false;
+            };
+            file-search = {
+                type = "nightwatch75/file-search:file-search";
+            };
+            lid-guard = {
+                type = "8bury/lid-guard:lid-guard";
+            };
+            mail = {
+                type = "mdj2812/thunderbird-companion:mail";
+            };
+            mpvpaper = {
+                type = "noctalia/mpvpaper:mpvpaper";
+            };
+            network = {
+                enabled = false;
+            };
+            nix-monitor = {
+                type = "avivbintangaringga/nix-monitor:nix-monitor";
+            };
+            notifications = {
+                enabled = true;
+            };
+            tray = {
+                enabled = true;
+            };
+            widget = {
+                type = "yocraft/qrcode:widget";
+            };
+            widget_2 = {
+                type = "alexander/screen-toolkit:widget";
+            };
+        };
+    };
 
     };
     home.file = {

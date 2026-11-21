@@ -17,6 +17,7 @@
         ./homeModules/nix-your-shell.nix
         ./homeModules/thunderbird.nix
          inputs.nix-craftapps.homeManagerModules.default 
+         inputs.nix-index-database.homeModules.default
         ./homeModules/craftapps.nix
     ];
 

@@ -49,6 +49,10 @@
           url = "github:olafkfreund/nix-craftapps";
           inputs.nixpkgs.follows = "nixpkgs";
         };
+        nix-index-database = {
+            url = "github:nix-community/nix-index-database";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
     };
 
     outputs = { nixpkgs, home-manager, zen-browser, ... } @ inputs:
@@ -61,7 +65,7 @@
             nixos = nixpkgs.lib.nixosSystem {
                 specialArgs = {inherit inputs;};
                 modules = [
-                    ./configuration.nix
+                    ./hosts/john/configuration.nix
                         inputs.noctalia-greeter.nixosModules.default
                         inputs.sops-nix.nixosModules.sops
                         ./homeModules/greeter.nix

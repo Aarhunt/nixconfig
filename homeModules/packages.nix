@@ -6,4 +6,5 @@ with pkgs; [
     bitwarden-cli
     xwayland-satellite
     mattermost-desktop
+    comma
 ]
