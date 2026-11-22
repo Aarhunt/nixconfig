@@ -8,7 +8,7 @@
             vim.opt.expandtab  = true
             vim.opt.smartindent = true
             vim.opt.relativenumber = true
-
+            vim.keymap.del("i", "jk")
 
             vim.keymap.set("n", "Z", function()
                     vim.diagnostic.open_float()

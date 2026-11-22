@@ -4,7 +4,7 @@
 	imports =
 		[ 
 		./hardware-configuration.nix
-        ./wifi.nix
+        ../../configs/tue-wpa2.nix
 		];
 
 # Bootloader.

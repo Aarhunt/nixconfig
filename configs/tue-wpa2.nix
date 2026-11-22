@@ -2,7 +2,7 @@
 
 {
   sops.secrets."university_password" = {
-    sopsFile = ../../configs/secrets/university.yaml;
+    sopsFile = secrets/university.yaml;
     key = "university_password";
   };
 

@@ -1,0 +1,35 @@
+{
+  description = "Go development environment";
+
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+  };
+
+  outputs = { self, nixpkgs }:
+    let
+      supportedSystems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
+      forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
+    in
+    {
+      devShells = forAllSystems (system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+        in
+        {
+          default = pkgs.mkShell {
+            packages = with pkgs; [
+              go
+              gopls          # Go language server
+              gotools        # goimports, godoc, etc.
+              golangci-lint  # Linter
+              delve          # Debugger
+            ];
+
+            shellHook = ''
+              echo "Go $(go version) devshell ready!"
+            '';
+          };
+        });
+    };
+}
+

@@ -29,8 +29,8 @@
             VISUAL = "nvim";
         };
 
-        username = "arend";
-        homeDirectory = "/home/arend";
+        username = "aarhunt";
+        homeDirectory = "/home/aarhunt";
 
         stateVersion = "26.05";
     };

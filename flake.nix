@@ -8,17 +8,14 @@
             url = "github:nix-community/home-manager/release-26.05";
             inputs.nixpkgs.follows = "nixpkgs";
         };
-
         zen-browser = {
             url = "github:youwen5/zen-browser-flake";
             inputs.nixpkgs.follows = "nixpkgs";
         };
-
         noctalia = {
             url = "github:noctalia-dev/noctalia";
             inputs.nixpkgs.follows = "nixpkgs"; # this line is optional, prevents downloading two versions of nixpkgs but disables cache
         };
-
         nix4nvchad = {
             url = "github:nix-community/nix4nvchad";
             inputs.nixpkgs.follows = "nixpkgs";
@@ -31,12 +28,10 @@
             url = "github:Gerg-L/spicetify-nix";
             inputs.nixpkgs.follows = "nixpkgs";
         };
-
         sops-nix = {
             url = "github:Mic92/sops-nix";
             inputs.nixpkgs.follows = "nixpkgs";
         };
-
         obsidian-extensions = {
             url = "github:karaolidis/nix-obsidian-extensions";
             inputs.nixpkgs.follows = "nixpkgs";
@@ -46,11 +41,15 @@
             inputs.nixpkgs.follows = "nixpkgs";
         };
         nix-craftapps = {
-          url = "github:olafkfreund/nix-craftapps";
-          inputs.nixpkgs.follows = "nixpkgs";
+            url = "github:olafkfreund/nix-craftapps";
+            inputs.nixpkgs.follows = "nixpkgs";
         };
         nix-index-database = {
             url = "github:nix-community/nix-index-database";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
+        waterfox = {
+            url = "github:sammypanda/nixos-waterfox";
             inputs.nixpkgs.follows = "nixpkgs";
         };
     };
@@ -66,18 +65,41 @@
                 specialArgs = {inherit inputs;};
                 modules = [
                     ./hosts/john/configuration.nix
-                        inputs.noctalia-greeter.nixosModules.default
-                        inputs.sops-nix.nixosModules.sops
-                        ./homeModules/greeter.nix
-                        ./homeModules/zen.nix
-                        { nixpkgs.overlays = [ inputs.obsidian-extensions.overlays.default ]; }
-                        home-manager.nixosModules.home-manager {
-                        home-manager.useGlobalPkgs = true;
-                        home-manager.useUserPackages = true;
-                        home-manager.users.arend = import ./home.nix;
-                        home-manager.extraSpecialArgs = { inherit inputs system;};
-                        home-manager.backupFileExtension = "bak";
-                        }
+                    inputs.noctalia-greeter.nixosModules.default
+                    inputs.sops-nix.nixosModules.sops
+                    ./homeModules/greeter.nix
+                    ./homeModules/zen.nix
+                    { nixpkgs.overlays = [ inputs.obsidian-extensions.overlays.default ]; }
+                    home-manager.nixosModules.default {
+                        home-manager = {
+                            useGlobalPkgs = true;
+                            useUserPackages = true;
+                            users.arend = import ./home.nix;
+                            extraSpecialArgs = { inherit inputs system;};
+                            backupFileExtension = "bak";
+                        };
+                    }
+                ];
+            };
+
+            jerry = nixpkgs.lib.nixosSystem {
+                specialArgs = {inherit inputs;};
+                modules = [
+                    ./hosts/jerry/configuration.nix
+                    inputs.noctalia-greeter.nixosModules.default
+                    inputs.sops-nix.nixosModules.sops
+                    ./homeModules/greeter.nix
+                    ./homeModules/zen.nix
+                    { nixpkgs.overlays = [ inputs.obsidian-extensions.overlays.default ]; }
+                    home-manager.nixosModules.default {
+                        home-manager = {
+                            useGlobalPkgs = true;
+                            useUserPackages = true;
+                            users.aarhunt = import ./home.nix;
+                            extraSpecialArgs = { inherit inputs system;};
+                            backupFileExtension = "bak";
+                        };
+                    }
                 ];
             };
         };
